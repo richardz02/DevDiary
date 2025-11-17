@@ -1,7 +1,11 @@
+import NotesTable from "@/components/NotesTable";
+
 export default function Home() {
   return (
     <>
-      <h1>Home page</h1>
+      <div>
+        <NotesTable />
+      </div>
     </>
   );
 }
