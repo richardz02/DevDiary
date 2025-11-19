@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import Note from "./Note";
 import "./NotesTable.css";
 
@@ -21,11 +22,11 @@ const Notes: Note[] = [
 export default function NotesTable() {
   return (
     <>
-      <div className="notes-table">
+      <Box className="notes-table">
         {Notes.map((note, index) => (
           <Note key={index} note={note} />
         ))}
-      </div>
+      </Box>
     </>
   );
 }

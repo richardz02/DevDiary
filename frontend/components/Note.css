@@ -1,3 +1,7 @@
+.note {
+  padding: 5px;
+}
+
 .note:hover {
   cursor: pointer;
 }
