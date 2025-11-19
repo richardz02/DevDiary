@@ -1,16 +1,37 @@
+"use client";
+
+import { useState } from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Sidebar";
 import "./globals.css";
+import NoteForm from "@/components/NoteForm";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [openForm, setOpenForm] = useState(false); // boolean value to open/close form
+
+  const handleSubmit = (data: { title: string; body: string }) => {
+    console.log("Title: ", data.title);
+    console.log("Body: ", data.body);
+    setOpenForm(false);
+  };
+
+  const handleCloseForm = () => {
+    setOpenForm(false);
+  };
+
   return (
     <html lang="en">
       <body className="h-screen flex flex-col">
-        <Header />
+        <Header onNewNote={() => setOpenForm(true)} />
+        <NoteForm
+          open={openForm}
+          onSubmit={handleSubmit}
+          onClose={handleCloseForm}
+        />
 
         <div className="flex flex-1 overflow-hidden">
           <Navbar />

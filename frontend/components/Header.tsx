@@ -48,7 +48,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Header() {
+interface Props {
+  onNewNote: () => void;
+}
+
+export default function Header({ onNewNote }: Props) {
   return (
     <>
       <div className="header">
@@ -71,6 +75,7 @@ export default function Header() {
             variant="outlined"
             startIcon={<CreateIcon />}
             style={{ color: "purple", borderColor: "purple" }}
+            onClick={onNewNote}
           >
             New Note
           </Button>
