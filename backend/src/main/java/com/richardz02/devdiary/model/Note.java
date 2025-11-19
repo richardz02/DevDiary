@@ -18,8 +18,9 @@ public class Note {
     private String body; 
 
     // Constructors
-    public Note(LocalDate date, String title, String body) {
-        this.noteId = UUID.randomUUID();
+    public Note() {} // JPA needs public zero-args constructor to instantiate the entity when loading from the db
+
+    public Note(String title, String body) {
         this.date = LocalDate.now();
         this.title = title;
         this.body = body;
