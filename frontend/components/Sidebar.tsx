@@ -42,13 +42,6 @@ export default function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Todo" />
         </ListItemButton>
-
-        <ListItemButton>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary="Settings" />
-        </ListItemButton>
       </List>
     </Box>
   );
