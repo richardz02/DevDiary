@@ -3,8 +3,16 @@ package com.richardz02.devdiary.model;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Note {
-    private UUID noteId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID noteId; // Primary key, automatically generated
     private LocalDate date;
     private String title;
     private String body; 
