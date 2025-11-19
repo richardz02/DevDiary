@@ -1,0 +1,21 @@
+.worklog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-title {
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.input-textarea {
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  min-height: 160px;
+  resize: none;
+  overflow: auto;
+  max-height: 500px;
+}
