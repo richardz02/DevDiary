@@ -2,7 +2,7 @@
 
 import "./Header.css";
 import InputBase from "@mui/material/InputBase";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -15,11 +15,7 @@ import { Settings, Logout } from "@mui/icons-material";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  border: `1px solid ${theme.palette.divider}`,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
+  backgroundColor: theme.palette.common.white,
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
