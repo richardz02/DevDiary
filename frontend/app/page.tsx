@@ -1,11 +1,20 @@
-import NotesTable from "@/components/NotesTable";
+import { NoteSummary } from "@/types/note";
+import NoteList from "@/components/NoteList";
+import { getNotes } from "@/lib/notes";
 
-export default function Home() {
+export default async function Home() {
+  let notes: NoteSummary[] = [];
+
+  try {
+    notes = await getNotes();
+  } catch (err) {
+    console.error(err);
+    return <div>Error loading notes</div>;
+  }
+
   return (
     <>
-      <div>
-        <NotesTable />
-      </div>
+      <NoteList notes={notes} />
     </>
   );
 }
