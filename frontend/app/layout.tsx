@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Sidebar";
 import "./globals.css";
 import NoteForm from "@/components/NoteForm";
+import { createNoteAction } from "./actions";
 
 export default function RootLayout({
   children,
@@ -13,9 +14,12 @@ export default function RootLayout({
 }>) {
   const [openForm, setOpenForm] = useState(false); // boolean value to open/close form
 
-  const handleSubmit = (data: { title: string; body: string }) => {
+  const handleSubmit = async (data: { title: string; body: string }) => {
     console.log("Title: ", data.title);
     console.log("Body: ", data.body);
+
+    await createNoteAction(data);
+
     setOpenForm(false);
   };
 

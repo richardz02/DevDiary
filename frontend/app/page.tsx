@@ -1,6 +1,6 @@
 import { NoteSummary } from "@/types/note";
 import NoteList from "@/components/NoteList";
-import { getNotes } from "@/lib/notes";
+import { getNotes } from "@/lib/api/notes";
 
 export default async function Home() {
   let notes: NoteSummary[] = [];
