@@ -32,7 +32,7 @@ export default function NoteForm({ open, onSubmit, onClose }: Props) {
 
   return (
     <>
-      <Dialog open={open}>
+      <Dialog open={open} onClose={onClose} disableRestoreFocus>
         <DialogTitle>Work Log</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -78,7 +78,7 @@ export default function NoteForm({ open, onSubmit, onClose }: Props) {
           <Button
             type="submit"
             variant="outlined"
-            style={{ color: "green" }}
+            style={{ color: "green", borderColor: "green" }}
             form="worklog-form"
           >
             Add
@@ -86,7 +86,7 @@ export default function NoteForm({ open, onSubmit, onClose }: Props) {
           <Button
             type="button"
             variant="outlined"
-            style={{ color: "red" }}
+            style={{ color: "red", borderColor: "red" }}
             form="worklog-form"
             onClick={onClose}
           >

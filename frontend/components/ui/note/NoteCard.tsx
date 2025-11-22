@@ -6,8 +6,11 @@ import "./NoteCard.css";
 export default function NoteCard({ note }: { note: NoteSummary }) {
   return (
     <>
-      <Paper style={{ display: "flex" }} className="note">
-        <div>
+      <Paper
+        style={{ display: "flex", justifyContent: "space-between" }}
+        className="note"
+      >
+        <div className="note-summary">
           <h3>{note.title}</h3>
           <p>{note.createdAt}</p>
         </div>
