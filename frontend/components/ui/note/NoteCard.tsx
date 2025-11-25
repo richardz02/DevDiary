@@ -1,9 +1,9 @@
 import Paper from "@mui/material/Paper";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { NoteSummary } from "@/types/note";
+import { NoteDetail } from "@/types/note";
 import "./NoteCard.css";
 
-export default function NoteCard({ note }: { note: NoteSummary }) {
+export default function NoteCard({ note }: { note: NoteDetail }) {
   return (
     <>
       <Paper
