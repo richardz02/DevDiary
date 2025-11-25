@@ -29,3 +29,38 @@ export async function createNote(formData: { title: string; body: string }) {
   console.log(message);
   console.log(data);
 }
+
+export async function updateNote(
+  noteId: string,
+  formData: { title: string; body: string }
+) {
+  const res = await fetch(`${API_BASE_URL}/notes/${noteId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to update note");
+  }
+
+  const { message, data } = await res.json();
+  console.log(message);
+  console.log(data);
+}
+
+export async function deleteNote(noteId: string) {
+  const res = await fetch(`${API_BASE_URL}/notes/${noteId}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to delete note");
+  }
+
+  const { message, data } = await res.json();
+  console.log(message);
+  console.log(data);
+}
