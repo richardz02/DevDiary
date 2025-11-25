@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
-import NoteCard from "./NoteCard";
-import { NoteSummary } from "@/types/note";
+import { NoteDetail } from "@/types/note";
 import "./NoteList.css";
+import NoteCardShell from "./NoteCardShell";
 
 interface Props {
-  notes: NoteSummary[];
+  notes: NoteDetail[];
 }
 
 export default async function NoteList({ notes }: Props) {
@@ -12,7 +12,7 @@ export default async function NoteList({ notes }: Props) {
     <>
       <Box className="notes-list">
         {notes.map((note) => (
-          <NoteCard key={note.noteId} note={note} />
+          <NoteCardShell key={note.noteId} note={note} />
         ))}
       </Box>
     </>
