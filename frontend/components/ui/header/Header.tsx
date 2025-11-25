@@ -3,11 +3,7 @@ import NewNoteButton from "./components/NewNoteButton";
 import AvatarMenu from "./components/AvatarMenu";
 import SearchBar from "./components/SearchBar";
 
-interface Props {
-  onNewNote: () => void;
-}
-
-export default function Header({ onNewNote }: Props) {
+export default function Header() {
   return (
     <>
       <div className="header">
@@ -15,7 +11,7 @@ export default function Header({ onNewNote }: Props) {
 
         <div className="center">
           <SearchBar />
-          <NewNoteButton onNewNote={onNewNote} />
+          <NewNoteButton />
         </div>
 
         <AvatarMenu />

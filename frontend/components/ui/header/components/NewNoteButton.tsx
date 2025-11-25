@@ -2,17 +2,24 @@
 
 import { Button } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
+import { useMode } from "@/context/ModeContext";
 
-interface Props {
-  onNewNote: () => void;
-}
+export default function NewNoteButton() {
+  const { setMode } = useMode();
 
-export default function NewNoteButton({ onNewNote }: Props) {
+  const onNewNote = () => {
+    setMode({ type: "create" });
+  };
+
   return (
     <Button
-      variant="outlined"
+      variant="contained"
       startIcon={<CreateIcon />}
-      style={{ color: "purple", borderColor: "purple" }}
+      style={{
+        color: "white",
+        borderColor: "purple",
+        backgroundColor: "purple",
+      }}
       onClick={onNewNote}
     >
       New Note
