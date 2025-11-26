@@ -1,6 +1,6 @@
 "use client";
 
-import { useMode } from "@/context/ModeContext";
+import { useMode } from "@/app/(providers)/ModeContextProvider";
 import {
   Button,
   Dialog,
@@ -10,10 +10,13 @@ import {
   DialogTitle,
   Drawer,
 } from "@mui/material";
-import NoteView from "./NoteView";
-import NoteForm from "./NoteForm";
-import { createNoteAction, updateNoteAction } from "@/app/actions/NoteActions";
-import { useToast } from "../toast/ToastProvider";
+import NoteView from "./NoteView/NoteView";
+import NoteForm from "./NoteForm/NoteForm";
+import {
+  createNoteAction,
+  updateNoteAction,
+} from "@/features/notes/actions/NoteActions";
+import { useToast } from "../../../app/(providers)/ToastContextProvider";
 
 const drawerWidth = 300;
 

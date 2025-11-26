@@ -1,5 +1,5 @@
-import "./globals.css";
-import AppShell from "./AppShell";
+import "@/shared/styles/globals.css";
+import AppShell from "@/shared/ui/AppShell";
 
 export default function RootLayout({
   children,

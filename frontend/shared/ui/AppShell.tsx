@@ -1,6 +1,6 @@
 "use client";
 
-import { ToastProvider } from "@/components/ui/toast/ToastProvider";
+import { ToastProvider } from "@/app/(providers)/ToastContextProvider";
 import AppContent from "./AppContent";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {

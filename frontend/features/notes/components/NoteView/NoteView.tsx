@@ -1,8 +1,8 @@
-import { deleteNoteAction } from "@/app/actions/NoteActions";
-import { useMode } from "@/context/ModeContext";
+import { deleteNoteAction } from "@/features/notes/actions/NoteActions";
+import { useMode } from "@/app/(providers)/ModeContextProvider";
 import { NoteDetail } from "@/types/note";
 import { Box, Button, Divider, Typography } from "@mui/material";
-import { useToast } from "../toast/ToastProvider";
+import { useToast } from "@/app/(providers)/ToastContextProvider";
 
 export default function NoteView({ note }: { note: NoteDetail }) {
   const { setMode } = useMode();

@@ -1,9 +1,10 @@
-import { NoteSummary } from "@/types/note";
-import NoteList from "@/components/ui/note/NoteList";
-import { getNotes } from "@/lib/api/notes";
+import NoteList from "@/features/notes/components/NoteList/NoteList";
+import NoteUIController from "@/features/notes/components/NoteUIController";
+import { getNotes } from "@/features/notes/api/notes";
+import { NoteDetail } from "@/types/note";
 
 export default async function Home() {
-  let notes: NoteSummary[] = [];
+  let notes: NoteDetail[] = [];
 
   try {
     notes = await getNotes();
@@ -12,9 +13,14 @@ export default async function Home() {
     return <div>Error loading notes</div>;
   }
 
-  if (notes.length === 0) {
-    return <div>Start by adding notes</div>;
-  }
-
-  return <NoteList notes={notes} />;
+  return (
+    <>
+      {notes.length === 0 ? (
+        <div>Start by adding notes</div>
+      ) : (
+        <NoteList notes={notes} />
+      )}
+      <NoteUIController />
+    </>
+  );
 }

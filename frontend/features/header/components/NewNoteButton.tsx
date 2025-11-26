@@ -2,7 +2,7 @@
 
 import { Button } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
-import { useMode } from "@/context/ModeContext";
+import { useMode } from "@/app/(providers)/ModeContextProvider";
 
 export default function NewNoteButton() {
   const { setMode } = useMode();

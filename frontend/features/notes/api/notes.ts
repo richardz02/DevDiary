@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "@/lib/api/config";
 
 export async function getNotes() {
   const res = await fetch(`${API_BASE_URL}/notes`, {

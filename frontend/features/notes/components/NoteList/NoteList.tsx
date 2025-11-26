@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { NoteDetail } from "@/types/note";
 import "./NoteList.css";
-import NoteCardShell from "./NoteCardShell";
+import NoteCardShell from "../NoteCardShell/NoteCardShell";
 
 interface Props {
   notes: NoteDetail[];

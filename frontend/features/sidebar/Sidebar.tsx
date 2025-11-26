@@ -9,7 +9,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import NoteIcon from "@mui/icons-material/Note";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import FlagIcon from "@mui/icons-material/Flag";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 
 const drawerWidth = 240;
 
@@ -53,9 +53,9 @@ export default function Sidebar() {
 
         <ListItemButton>
           <ListItemIcon>
-            <FlagIcon />
+            <AssignmentIcon />
           </ListItemIcon>
-          <ListItemText primary="Milestones" />
+          <ListItemText primary="Projects" />
         </ListItemButton>
       </List>
     </Box>

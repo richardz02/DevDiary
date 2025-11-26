@@ -1,7 +1,7 @@
-import Header from "@/components/ui/header/Header";
-import Sidebar from "@/components/ui/sidebar/Sidebar";
-import { ToastProvider } from "@/components/ui/toast/ToastProvider";
-import { ModeProvider } from "@/context/ModeContext";
+import Header from "@/features/header/Header";
+import Sidebar from "@/features/sidebar/Sidebar";
+import { ToastProvider } from "@/app/(providers)/ToastContextProvider";
+import { ModeProvider } from "@/app/(providers)/ModeContextProvider";
 
 export default function AppContent({
   children,

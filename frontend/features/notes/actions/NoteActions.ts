@@ -1,6 +1,6 @@
 "use server";
 
-import { createNote, deleteNote, updateNote } from "@/lib/api/notes";
+import { createNote, deleteNote, updateNote } from "@/features/notes/api/notes";
 import { revalidatePath } from "next/cache";
 
 export async function createNoteAction(payload: {
