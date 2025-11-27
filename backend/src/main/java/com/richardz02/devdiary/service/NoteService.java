@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.richardz02.devdiary.dto.note.NoteRequestDTO;
 import com.richardz02.devdiary.dto.note.NoteResponseDTO;
+import com.richardz02.devdiary.exceptions.ResourceNotFoundException;
 import com.richardz02.devdiary.mapper.NoteMapper;
 import com.richardz02.devdiary.model.Note;
 import com.richardz02.devdiary.repository.NoteRepository;
@@ -44,33 +45,34 @@ public class NoteService {
         Note note = noteMapper.toEntity(noteRequestDTO);
         
         // Save note to database
-        noteRepository.save(note);
+        Note saved = noteRepository.save(note);
 
-        // Construct the response DTO from the Note entity and return
-        NoteResponseDTO noteResponseDTO = noteMapper.toResponseDTO(note);
-        return noteResponseDTO;
+        // Return the note response dto
+        return noteMapper.toResponseDTO(saved);
     }
 
     public NoteResponseDTO updateNote(UUID noteId, NoteRequestDTO noteRequestDTO) {
         // Find the note in the database by note id
-        Note note = noteRepository.findById(noteId).orElseThrow(() -> new IllegalArgumentException());
+        Note note = noteRepository.findById(noteId).orElseThrow(() -> new ResourceNotFoundException("Note with id: " + noteId + " not found."));
 
         // Reset fields 
         note.setTitle(noteRequestDTO.getTitle());
         note.setBody(noteRequestDTO.getBody());
 
         // Save updated note
-        noteRepository.save(note);
+        Note saved = noteRepository.save(note);
 
-        // Construct response DTO and return
-        NoteResponseDTO noteResponseDTO = noteMapper.toResponseDTO(note);
-        return noteResponseDTO;
+        // Return the note response dto
+        return noteMapper.toResponseDTO(saved);
     }
 
     public void deleteNote(UUID noteId) {
-        // Find the note in the database by note id
-        Note note = noteRepository.findById(noteId).orElseThrow(() -> new IllegalArgumentException());
+        // Check if the note to be deleted exists in the database
+        if (!noteRepository.existsById(noteId)) {
+            throw new ResourceNotFoundException("Note with id: " + noteId + " not found.");
+        }
 
-        noteRepository.delete(note);
+        // Delete note by id
+        noteRepository.deleteById(noteId);
     }
 }
