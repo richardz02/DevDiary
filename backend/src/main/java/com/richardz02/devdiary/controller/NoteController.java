@@ -1,5 +1,6 @@
 package com.richardz02.devdiary.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,14 @@ public class NoteController {
     @GetMapping("/")     
     public String home() {
         return "Welcome to my Dev Diary";
+    }
+
+    @GetMapping("/notes")
+    public ResponseEntity<ApiResponse<List<NoteResponseDTO>>> getAllNotes() {
+        List<NoteResponseDTO> noteResponseDTOs = noteService.getAllNotes();
+
+        ApiResponse<List<NoteResponseDTO>> response = new ApiResponse<List<NoteResponseDTO>>("Success", noteResponseDTOs);
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/notes")

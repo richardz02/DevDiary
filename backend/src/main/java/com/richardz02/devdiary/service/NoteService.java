@@ -26,6 +26,19 @@ public class NoteService {
         this.noteMapper = noteMapper;
     }
 
+    public List<NoteResponseDTO> getAllNotes() {
+        List<Note> notes = noteRepository.findAll();
+
+        List<NoteResponseDTO> noteResponseDTOs = notes.stream()
+                                                      .map(note -> {
+                                                        NoteResponseDTO noteResponseDTO = noteMapper.toResponseDTO(note);
+                                                        return noteResponseDTO;
+                                                      })
+                                                      .toList();
+
+        return noteResponseDTOs;
+    }
+
     public NoteResponseDTO addNote(NoteRequestDTO noteRequestDTO) {
         // Construct the Note entity from request DTO
         Note note = noteMapper.toEntity(noteRequestDTO);
