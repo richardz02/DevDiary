@@ -19,6 +19,8 @@ import com.richardz02.devdiary.dto.note.NoteRequestDTO;
 import com.richardz02.devdiary.dto.note.NoteResponseDTO;
 import com.richardz02.devdiary.service.NoteService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1")
 public class NoteController {
@@ -46,7 +48,7 @@ public class NoteController {
     }
 
     @PostMapping("/notes")
-    public ResponseEntity<ApiResponse<NoteResponseDTO>> addNote(@RequestBody NoteRequestDTO addNoteRequest) {
+    public ResponseEntity<ApiResponse<NoteResponseDTO>> addNote(@Valid @RequestBody NoteRequestDTO addNoteRequest) {
         NoteResponseDTO noteResponseDTO = noteService.addNote(addNoteRequest);
 
         // Construct API response with data type NoteResponseDTO
@@ -55,7 +57,7 @@ public class NoteController {
     }
 
     @PutMapping("/notes/{noteId}")
-    public ResponseEntity<ApiResponse<NoteResponseDTO>> updateNote(@PathVariable UUID noteId, @RequestBody NoteRequestDTO updateNoteRequest) {
+    public ResponseEntity<ApiResponse<NoteResponseDTO>> updateNote(@PathVariable UUID noteId, @Valid @RequestBody NoteRequestDTO updateNoteRequest) {
         NoteResponseDTO noteResponseDTO = noteService.updateNote(noteId, updateNoteRequest);
 
         // Construct API response with data type NoteResponseDTO
