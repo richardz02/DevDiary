@@ -13,7 +13,7 @@ public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID noteId; // Primary key, automatically generated
-    private LocalDate date;
+    private LocalDate createdAt;
     private String title;
     private String body; 
 
@@ -21,7 +21,7 @@ public class Note {
     public Note() {} // JPA needs public zero-args constructor to instantiate the entity when loading from the db
 
     public Note(String title, String body) {
-        this.date = LocalDate.now();
+        this.createdAt = LocalDate.now();
         this.title = title;
         this.body = body;
     }
@@ -31,8 +31,8 @@ public class Note {
         return noteId;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
     
     public String getTitle() {

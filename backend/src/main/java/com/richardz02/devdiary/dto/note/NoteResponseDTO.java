@@ -5,13 +5,13 @@ import java.util.UUID;
 
 public class NoteResponseDTO {
     private UUID noteId;
-    private LocalDate date;
+    private LocalDate createdAt;
     private String title;
     private String body;
 
-    public NoteResponseDTO(UUID noteId, LocalDate date, String title, String body) {
+    public NoteResponseDTO(UUID noteId, LocalDate createdAt, String title, String body) {
         this.noteId = noteId;
-        this.date = date;
+        this.createdAt = createdAt;
         this.title = title;
         this.body = body;
     }
@@ -21,8 +21,8 @@ public class NoteResponseDTO {
         return noteId;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
     public String getTitle() {

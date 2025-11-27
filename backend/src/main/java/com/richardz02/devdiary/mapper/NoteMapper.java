@@ -13,6 +13,6 @@ public class NoteMapper {
     }
 
     public NoteResponseDTO toResponseDTO(Note note) {
-        return new NoteResponseDTO(note.getNoteId(), note.getDate(), note.getTitle(), note.getBody());
+        return new NoteResponseDTO(note.getNoteId(), note.getCreatedAt(), note.getTitle(), note.getBody());
     }
 }
